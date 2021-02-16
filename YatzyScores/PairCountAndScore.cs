@@ -6,15 +6,15 @@ namespace YatzyScores
 {
     class PairCountAndScore
     {
-        public int PairCount;
-        public int Score;
+        private int _pairCount;
+        private int _score;
 
         public int TwoPairScore
         {
             get
             {
-                var hasTwoPairs = PairCount >= 2;
-                return hasTwoPairs ? Score : 0;
+                var hasTwoPairs = _pairCount >= 2;
+                return hasTwoPairs ? _score : 0;
             }
         }
 
@@ -22,8 +22,8 @@ namespace YatzyScores
         {
             var hasTwoOrMore = frequency > 1;
             if (!hasTwoOrMore) return;
-            PairCount++;
-            Score += diceValue * 2;
+            _pairCount++;
+            _score += diceValue * 2;
         }
     }
 }
