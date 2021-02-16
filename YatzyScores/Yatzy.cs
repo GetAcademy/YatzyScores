@@ -20,23 +20,22 @@ namespace YatzyScores
 
         public int GetTwoPairPoints()
         {
-            var frequencies = new int[7];
-            foreach (var value in _values)
+            var f = new int[7];
+            foreach (var v in _values)
             {
-                frequencies[value]++;
+                f[v]++;
             }
-            var pairCount = 0;
-            var score = 0;
-            for (var value = 6; value > 0; value--)
+            var p = 0;
+            var s = 0;
+            for (var v = 6; v > 0; v--)
             {
-                if (frequencies[value] > 1)
+                if (f[v] > 1)
                 {
-                    pairCount++;
-                    score += value * 2;
+                    p++;
+                    s += v * 2;
                 }
             }
-
-            return pairCount >= 2 ? score : 0;
+            return p >= 2 ? s : 0;
         }
     }
 
